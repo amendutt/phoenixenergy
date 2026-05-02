@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Oswald:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 220 20% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 20% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 20% 15%;
+
+    --primary: 38 72% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 10% 96%;
+    --secondary-foreground: 220 20% 15%;
+
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 10% 46%;
+
+    --accent: 38 72% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 38 72% 50%;
+
+    --radius: 0.25rem;
+
+    /* Industar-style custom tokens */
+    --topbar-bg: 220 15% 18%;
+    --topbar-foreground: 0 0% 80%;
+    --logo-bar-bg: 0 0% 100%;
+    --logo-bar-foreground: 220 20% 15%;
+    --nav-bg: 0 0% 100%;
+    --nav-foreground: 220 20% 25%;
+    --nav-active: 28 91% 54%;
+    --header-dark: 220 25% 10%;
+    --section-dark: 220 20% 18%;
+    --section-dark-foreground: 0 0% 95%;
+    --section-gray: 220 14% 96%;
+    --footer-bg: 220 20% 12%;
+    --footer-foreground: 220 10% 60%;
+    --gold: 38 72% 50%;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+}
+
+@layer components {
+  .section-padding {
+    @apply py-20 px-4 md:px-8;
+  }
+
+  .section-title {
+    @apply text-sm font-semibold uppercase tracking-wider text-primary mb-2;
+  }
+
+  .section-heading {
+    @apply text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-foreground leading-tight;
+  }
+
+  .section-heading-light {
+    @apply text-3xl md:text-4xl lg:text-5xl font-heading font-bold leading-tight;
+    color: hsl(var(--section-dark-foreground));
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-3.5 font-semibold text-sm uppercase tracking-wider transition-all duration-300 hover:brightness-110 hover:-translate-y-0.5 shadow-lg;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center gap-2 border-2 border-primary text-primary px-8 py-3.5 font-semibold text-sm uppercase tracking-wider transition-all duration-300 hover:bg-primary hover:text-primary-foreground;
+  }
+
+  .btn-outline-light {
+    @apply inline-flex items-center gap-2 border-2 px-8 py-3.5 font-semibold text-sm uppercase tracking-wider transition-all duration-300;
+    border-color: hsl(var(--section-dark-foreground));
+    color: hsl(var(--section-dark-foreground));
+  }
+
+  .btn-outline-light:hover {
+    @apply bg-primary text-primary-foreground;
+    border-color: hsl(var(--primary));
+  }
+
+  .dark-section {
+    background-color: hsl(var(--section-dark));
+    color: hsl(var(--section-dark-foreground));
+  }
+
+  .gray-section {
+    background-color: hsl(var(--section-gray));
+  }
+
+  .page-banner {
+    @apply relative min-h-[300px] md:min-h-[400px] flex items-center justify-center bg-cover bg-center;
+  }
+
+  .page-banner::before {
+    content: '';
+    @apply absolute inset-0;
+    background: linear-gradient(to right, hsla(var(--header-dark), 0.92), hsla(var(--header-dark), 0.75));
+  }
+
+  .industry-card {
+    @apply relative overflow-hidden cursor-pointer;
+  }
+
+  .industry-card::after {
+    content: '';
+    @apply absolute inset-0 transition-all duration-500;
+    background: linear-gradient(to top, hsla(220, 20%, 10%, 0.95), hsla(220, 20%, 10%, 0.3));
+  }
+
+  .industry-card:hover::after {
+    background: linear-gradient(to top, hsla(var(--primary), 0.95), hsla(var(--primary), 0.4));
+  }
+
+  /* Industar-style service card */
+  .service-card {
+    @apply relative bg-background overflow-hidden transition-all duration-500 hover:-translate-y-2;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+  }
+
+  .service-card:hover {
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+  }
+
+  .service-card::before {
+    content: '';
+    @apply absolute bottom-0 left-0 right-0 h-1 bg-primary transition-all duration-300;
+    transform: scaleX(0);
+  }
+
+  .service-card:hover::before {
+    transform: scaleX(1);
+  }
+
+  /* Industar-style decorative elements */
+  .section-divider {
+    @apply w-12 h-1 bg-primary mb-6;
+  }
+
+  .section-divider-center {
+    @apply w-12 h-1 bg-primary mx-auto mb-6;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
