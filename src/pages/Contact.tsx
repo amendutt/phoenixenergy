@@ -1,5 +1,13 @@
 import { useState } from "react";
-import { Phone, Mail, MapPin, Clock, Send, MessageCircle, Globe } from "lucide-react";
+import {
+  Phone,
+  Mail,
+  MapPin,
+  Clock,
+  Send,
+  MessageCircle,
+  Globe,
+} from "lucide-react";
 import PageBanner from "@/components/PageBanner";
 import ScrollReveal from "@/components/ScrollReveal";
 
@@ -22,8 +30,18 @@ const offices: Office[] = [
     name: "Qatar Office",
     country: "Qatar",
     status: "active",
-    phone: ["+974 7778 6920 (Sales & Operations)", "+974 7175 6000 (Accounts & Finance)"],
-    email: ["sales@ppsqatar.com"],
+    phone: [
+      "+974 7778 6920 (Sales & Operations)",
+      "+974 7162 8000 (Sales In-Charge)",
+      "+974 7068 3586 (Sales/Operation Head)",
+      "+974 7175 6000 (Accounts & Finance)",
+      "+974 7773 6248 (General Maintenance Support)",
+      "+974 5074 3267 (Service Enquiries)",
+    ],
+    email: [
+      "sales@ppsqatar.com",
+      "service@ppsqatar.com (for service & General maintenance enquiries)",
+    ],
     address: ["Sayer Tower, Barwa Commercial Avenue", "Doha - Qatar"],
     whatsapp: "97477786920",
     hours: "Saturday to Thursday, 8:30 AM - 5:30 PM | 24/7 Technical Support",
@@ -98,7 +116,9 @@ const Contact = () => {
                   <Globe className="w-4 h-4" />
                   {o.country}
                   {o.status === "coming_soon" && (
-                    <span className="text-[10px] bg-muted text-muted-foreground px-2 py-0.5 rounded-full uppercase">Soon</span>
+                    <span className="text-[10px] bg-muted text-muted-foreground px-2 py-0.5 rounded-full uppercase">
+                      Soon
+                    </span>
                   )}
                 </span>
               </button>
@@ -112,9 +132,13 @@ const Contact = () => {
                 <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-6">
                   <Globe className="w-10 h-10 text-primary" />
                 </div>
-                <h3 className="font-heading text-2xl font-bold mb-4">Coming Soon</h3>
+                <h3 className="font-heading text-2xl font-bold mb-4">
+                  Coming Soon
+                </h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  Our {office.country} office is opening soon. Stay tuned for updates. In the meantime, feel free to reach us through our other offices.
+                  Our {office.country} office is opening soon. Stay tuned for
+                  updates. In the meantime, feel free to reach us through our
+                  other offices.
                 </p>
               </div>
             </ScrollReveal>
@@ -123,9 +147,21 @@ const Contact = () => {
               {/* Contact Info Cards */}
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
                 {[
-                  { icon: <Phone className="w-6 h-6" />, title: "Call Us", lines: office.phone || [] },
-                  { icon: <Mail className="w-6 h-6" />, title: "Email Us", lines: office.email || [] },
-                  { icon: <MapPin className="w-6 h-6" />, title: "Visit Us", lines: office.address || [] },
+                  {
+                    icon: <Phone className="w-6 h-6" />,
+                    title: "Call Us",
+                    lines: office.phone || [],
+                  },
+                  {
+                    icon: <Mail className="w-6 h-6" />,
+                    title: "Email Us",
+                    lines: office.email || [],
+                  },
+                  {
+                    icon: <MapPin className="w-6 h-6" />,
+                    title: "Visit Us",
+                    lines: office.address || [],
+                  },
                   {
                     icon: <Clock className="w-6 h-6" />,
                     title: "Working Hours",
@@ -138,9 +174,13 @@ const Contact = () => {
                       <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
                         {item.icon}
                       </div>
-                      <h3 className="font-heading text-lg font-bold mb-3">{item.title}</h3>
+                      <h3 className="font-heading text-lg font-bold mb-3">
+                        {item.title}
+                      </h3>
                       {item.lines.map((line, j) => (
-                        <p key={j} className="text-muted-foreground text-sm">{line}</p>
+                        <p key={j} className="text-muted-foreground text-sm">
+                          {line}
+                        </p>
                       ))}
                     </div>
                   </ScrollReveal>
@@ -171,19 +211,66 @@ const Contact = () => {
                   <div className="section-divider" />
                   <h2 className="section-heading mb-6">Send Us a Message</h2>
                   <p className="text-muted-foreground mb-8 leading-relaxed">
-                    Ready to discuss your requirements? Our team is here to provide tailored solutions for your oil & gas, industrial, marine, or HVAC needs. Our mission is clear and simple – We Get it Done.
+                    Ready to discuss your requirements? Our team is here to
+                    provide tailored solutions for your oil & gas, industrial,
+                    marine, or HVAC needs. Our mission is clear and simple – We
+                    Get it Done.
                   </p>
 
                   <form onSubmit={handleSubmit} className="space-y-4">
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <input type="text" placeholder="Your Name *" required value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} className="w-full px-4 py-3.5 border border-border bg-background text-foreground focus:outline-none focus:border-primary transition-colors" />
-                      <input type="email" placeholder="Your Email *" required value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} className="w-full px-4 py-3.5 border border-border bg-background text-foreground focus:outline-none focus:border-primary transition-colors" />
+                      <input
+                        type="text"
+                        placeholder="Your Name *"
+                        required
+                        value={formData.name}
+                        onChange={(e) =>
+                          setFormData({ ...formData, name: e.target.value })
+                        }
+                        className="w-full px-4 py-3.5 border border-border bg-background text-foreground focus:outline-none focus:border-primary transition-colors"
+                      />
+                      <input
+                        type="email"
+                        placeholder="Your Email *"
+                        required
+                        value={formData.email}
+                        onChange={(e) =>
+                          setFormData({ ...formData, email: e.target.value })
+                        }
+                        className="w-full px-4 py-3.5 border border-border bg-background text-foreground focus:outline-none focus:border-primary transition-colors"
+                      />
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <input type="tel" placeholder="Phone Number" value={formData.phone} onChange={(e) => setFormData({ ...formData, phone: e.target.value })} className="w-full px-4 py-3.5 border border-border bg-background text-foreground focus:outline-none focus:border-primary transition-colors" />
-                      <input type="text" placeholder="Subject *" required value={formData.subject} onChange={(e) => setFormData({ ...formData, subject: e.target.value })} className="w-full px-4 py-3.5 border border-border bg-background text-foreground focus:outline-none focus:border-primary transition-colors" />
+                      <input
+                        type="tel"
+                        placeholder="Phone Number"
+                        value={formData.phone}
+                        onChange={(e) =>
+                          setFormData({ ...formData, phone: e.target.value })
+                        }
+                        className="w-full px-4 py-3.5 border border-border bg-background text-foreground focus:outline-none focus:border-primary transition-colors"
+                      />
+                      <input
+                        type="text"
+                        placeholder="Subject *"
+                        required
+                        value={formData.subject}
+                        onChange={(e) =>
+                          setFormData({ ...formData, subject: e.target.value })
+                        }
+                        className="w-full px-4 py-3.5 border border-border bg-background text-foreground focus:outline-none focus:border-primary transition-colors"
+                      />
                     </div>
-                    <textarea placeholder="Your Message *" required rows={6} value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} className="w-full px-4 py-3.5 border border-border bg-background text-foreground focus:outline-none focus:border-primary transition-colors resize-none" />
+                    <textarea
+                      placeholder="Your Message *"
+                      required
+                      rows={6}
+                      value={formData.message}
+                      onChange={(e) =>
+                        setFormData({ ...formData, message: e.target.value })
+                      }
+                      className="w-full px-4 py-3.5 border border-border bg-background text-foreground focus:outline-none focus:border-primary transition-colors resize-none"
+                    />
                     <button type="submit" className="btn-primary">
                       Send Message <Send className="w-4 h-4" />
                     </button>

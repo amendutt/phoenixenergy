@@ -1,6 +1,16 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Mail, Menu, X, ChevronDown, Facebook, Twitter, Linkedin, Youtube, MessageCircle } from "lucide-react";
+import {
+  Mail,
+  Menu,
+  X,
+  ChevronDown,
+  Facebook,
+  Twitter,
+  Linkedin,
+  Youtube,
+  MessageCircle,
+} from "lucide-react";
 
 const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -41,17 +51,33 @@ const Header = () => {
       <div style={{ backgroundColor: "hsl(var(--topbar-bg))" }}>
         <div className="container mx-auto flex items-center justify-between py-2.5 text-sm">
           <div className="flex items-center gap-1">
-            <a href="mailto:sales@phoenixglobal.com" className="flex items-center gap-1.5 transition-opacity hover:opacity-80" style={{ color: "hsl(var(--topbar-foreground))" }}>
+            <a
+              href="mailto:sales@phoenixglobal.com"
+              className="flex items-center gap-1.5 transition-opacity hover:opacity-80"
+              style={{ color: "hsl(var(--topbar-foreground))" }}
+            >
               <Mail className="w-3.5 h-3.5 text-primary" />
               <span className="hidden sm:inline">sales@phoenixglobal.com</span>
             </a>
           </div>
-          <div className="flex items-center gap-4" style={{ color: "hsl(var(--topbar-foreground))" }}>
-            <a href="tel:+97477786920" className="flex items-center gap-1.5 transition-opacity hover:opacity-80 hover:text-primary" style={{ color: "hsl(var(--topbar-foreground))" }}>
+          <div
+            className="flex items-center gap-4"
+            style={{ color: "hsl(var(--topbar-foreground))" }}
+          >
+            <a
+              href="tel:+97477786920"
+              className="flex items-center gap-1.5 transition-opacity hover:opacity-80 hover:text-primary"
+              style={{ color: "hsl(var(--topbar-foreground))" }}
+            >
               <span className="text-primary text-xs">📞</span>
               <span className="hidden sm:inline text-xs">+974 7778 6920</span>
             </a>
-            <span className="hidden sm:inline mx-1" style={{ color: "hsl(var(--topbar-foreground))" }}>|</span>
+            <span
+              className="hidden sm:inline mx-1"
+              style={{ color: "hsl(var(--topbar-foreground))" }}
+            >
+              |
+            </span>
             <a
               href="https://wa.me/97477786920"
               target="_blank"
@@ -62,7 +88,12 @@ const Header = () => {
               <MessageCircle className="w-3.5 h-3.5 text-primary" />
               <span className="hidden sm:inline text-xs">WhatsApp</span>
             </a>
-            <span className="hidden sm:inline mx-1" style={{ color: "hsl(var(--topbar-foreground))" }}>|</span>
+            <span
+              className="hidden sm:inline mx-1"
+              style={{ color: "hsl(var(--topbar-foreground))" }}
+            >
+              |
+            </span>
             <a
               href="https://wa.me/97477786920"
               target="_blank"
@@ -80,22 +111,42 @@ const Header = () => {
       <div className="bg-background border-b border-border">
         <div className="container mx-auto flex items-center justify-between py-4">
           <Link to="/" className="flex items-center gap-3">
-            <img src="/images/phoenix-logo.png" alt="Phoenix Energy Group" className="h-14 md:h-16 w-auto" />
+            <img
+              src="/images/phoenix-logo.png"
+              alt="Phoenix Energy Group"
+              className="h-14 md:h-16 w-auto"
+            />
           </Link>
 
           <div className="hidden lg:flex items-center gap-10">
             <div className="flex items-center gap-3">
-              <img src="/images/iso-certified.jpg" alt="ISO Certified" className="w-12 h-12 object-contain" />
+              <img
+                src="/images/iso-certified.jpg"
+                alt="ISO Certified"
+                className="w-12 h-12 object-contain"
+              />
               <div>
-                <p className="text-foreground text-sm font-bold">Certified Company</p>
-                <p className="text-muted-foreground text-xs">Quality • Environment • Safety</p>
+                <p className="text-foreground text-sm font-bold">
+                  Certified Company
+                </p>
+                <p className="text-muted-foreground text-xs">
+                  Quality • Environment • Safety
+                </p>
               </div>
             </div>
             <div className="flex items-center gap-3">
-              <img src="/images/badge-20-years.jpg" alt="20 Years of Experience" className="w-12 h-12 object-contain" />
+              <img
+                src="/images/badge-20-years.jpg"
+                alt="20 Years of Experience"
+                className="w-20 h-20 object-contain -mr-6"
+              />
               <div>
-                <p className="text-foreground text-sm font-bold">Leading Industry</p>
-                <p className="text-muted-foreground text-xs">20+ Years of Industry Excellence</p>
+                <p className="text-foreground text-sm font-bold">
+                  Leading Industry
+                </p>
+                <p className="text-muted-foreground text-xs">
+                  20+ Years of Industry Excellence
+                </p>
               </div>
             </div>
           </div>
@@ -107,7 +158,9 @@ const Header = () => {
       </div>
 
       {/* Nav Bar */}
-      <nav className={`bg-background border-b border-border transition-shadow duration-300 ${scrolled ? "sticky top-0 z-50 shadow-lg" : ""}`}>
+      <nav
+        className={`bg-background border-b border-border transition-shadow duration-300 ${scrolled ? "sticky top-0 z-50 shadow-lg" : ""}`}
+      >
         <div className="container mx-auto flex items-center justify-between">
           <div className="hidden lg:flex">
             {navLinks.map((link) => (
@@ -156,7 +209,11 @@ const Header = () => {
               { Icon: Linkedin, href: "#" },
               { Icon: Youtube, href: "#" },
             ].map(({ Icon, href }, i) => (
-              <a key={i} href={href} className="w-8 h-8 rounded-full flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-primary/5 transition-colors">
+              <a
+                key={i}
+                href={href}
+                className="w-8 h-8 rounded-full flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-primary/5 transition-colors"
+              >
                 <Icon className="w-4 h-4" />
               </a>
             ))}
@@ -167,7 +224,11 @@ const Header = () => {
             className="lg:hidden p-4 text-foreground"
             onClick={() => setMobileOpen(!mobileOpen)}
           >
-            {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {mobileOpen ? (
+              <X className="w-6 h-6" />
+            ) : (
+              <Menu className="w-6 h-6" />
+            )}
           </button>
         </div>
 
