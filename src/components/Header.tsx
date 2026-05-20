@@ -52,12 +52,14 @@ const Header = () => {
         <div className="container mx-auto flex items-center justify-between py-2.5 text-sm">
           <div className="flex items-center gap-1">
             <a
-              href="mailto:sales@phoenixglobal.com"
+              href="mailto:sales@phoenixenergyglobal.com"
               className="flex items-center gap-1.5 transition-opacity hover:opacity-80"
               style={{ color: "hsl(var(--topbar-foreground))" }}
             >
               <Mail className="w-3.5 h-3.5 text-primary" />
-              <span className="hidden sm:inline">sales@phoenixglobal.com</span>
+              <span className="hidden sm:inline">
+                sales@phoenixenergyglobal.com
+              </span>
             </a>
           </div>
           <div
